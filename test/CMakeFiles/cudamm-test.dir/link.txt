@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/cudamm-test.dir/main.o  -o cudamm-test -rdynamic ../src/libcudamm.a -lcuda 
