@@ -35,15 +35,15 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/blake/src/cudamm
+CMAKE_SOURCE_DIR = /home/blake/w/cudamm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/blake/src/cudamm
+CMAKE_BINARY_DIR = /home/blake/w/cudamm
 
 # Utility rule file for doc.
 
 doc/CMakeFiles/doc:
-	cd /home/blake/src/cudamm/doc && /usr/bin/doxygen
+	cd /home/blake/w/cudamm/doc && /usr/bin/doxygen
 
 doc: doc/CMakeFiles/doc
 doc: doc/CMakeFiles/doc.dir/build.make
@@ -54,10 +54,10 @@ doc/CMakeFiles/doc.dir/build: doc
 .PHONY : doc/CMakeFiles/doc.dir/build
 
 doc/CMakeFiles/doc.dir/clean:
-	cd /home/blake/src/cudamm/doc && $(CMAKE_COMMAND) -P CMakeFiles/doc.dir/cmake_clean.cmake
+	cd /home/blake/w/cudamm/doc && $(CMAKE_COMMAND) -P CMakeFiles/doc.dir/cmake_clean.cmake
 .PHONY : doc/CMakeFiles/doc.dir/clean
 
 doc/CMakeFiles/doc.dir/depend:
-	cd /home/blake/src/cudamm && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/blake/src/cudamm /home/blake/src/cudamm/doc /home/blake/src/cudamm /home/blake/src/cudamm/doc /home/blake/src/cudamm/doc/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/blake/w/cudamm && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/blake/w/cudamm /home/blake/w/cudamm/doc /home/blake/w/cudamm /home/blake/w/cudamm/doc /home/blake/w/cudamm/doc/CMakeFiles/doc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : doc/CMakeFiles/doc.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/blake/src/cudamm/doc
+# Install script for directory: /home/blake/w/cudamm/doc
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

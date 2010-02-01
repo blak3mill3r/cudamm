@@ -30,7 +30,7 @@ namespace cuda
 			/**
 				@param numDevice the number of the CUDA device to use
 			*/
-			explicit Cuda(int numDevice = 0);
+			explicit Cuda(int numDevice = 0, bool gl = false);
 			
 			/// Detach CUDA context
 			~Cuda();

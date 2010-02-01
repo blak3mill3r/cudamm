@@ -9,14 +9,16 @@ namespace cuda
 		CUcontext ctx;
 	};
 
-	Cuda::Cuda(int numDevice)
+	Cuda::Cuda(int numDevice, bool gl)
 		: impl(new impl_t)
 	{
 		detail::error_check(cuInit(0));
 	
 		CUdevice dev;
 		detail::error_check(cuDeviceGet(&dev, numDevice), "Can't get Cuda device");
-		detail::error_check(cuCtxCreate(&impl->ctx, 0, dev), "Can't create Cuda context");
+    //if(gl) detail::error_check(cuGLCtxCreate(&impl->ctx, 0, dev), "Can't create (OpenGL interoperable) Cuda context");
+    //else   detail::error_check(cuCtxCreate(&impl->ctx, 0, dev), "Can't create Cuda context");
+    detail::error_check(cuCtxCreate(&impl->ctx, 0, dev), "Can't create Cuda context");
 	}
 
 	Cuda::~Cuda()

@@ -1,4 +1,5 @@
 #include <cuda.h>
+#include <iostream>
 
 #include <cudamm/function.hpp>
 #include <cudamm/module.hpp>
@@ -84,6 +85,7 @@ namespace cuda
 	
 	void Function::launch(int gridWidth, int gridHeight, const Stream &stream) const
 	{
+    std::cout << "DOIN IT" << std::endl;
 		detail::error_check(
 			cuLaunchGridAsync(impl->func, gridWidth, gridHeight, stream.impl->stream),
 			"Can't launch asynchronous Cuda function grid");
@@ -94,6 +96,7 @@ namespace cuda
 		detail::error_check(cuParamSetTexRef(impl->func, CU_PARAM_TR_DEFAULT, texref.impl->texref),
 			"Can't use Cuda texture reference in function");
 	}
+
 }
 
 

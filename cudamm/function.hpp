@@ -3,6 +3,17 @@
 
 #include <boost/utility.hpp>
 #include <boost/scoped_ptr.hpp>
+#include <boost/mpl/vector.hpp>
+#include <boost/mpl/for_each.hpp>
+#include <boost/mpl/transform.hpp>
+#include <boost/mpl/placeholders.hpp>
+#include <iostream>
+#include <typeinfo>
+
+using namespace boost;
+
+#define ALIGN_UP(offset, alignment) \
+  (offset) = ((offset) + (alignment) - 1) & ~((alignment) - 1)
 
 namespace cuda
 {
@@ -107,11 +118,256 @@ namespace cuda
 				@param texref the texture reference
 			*/
 			void useTexture(const TextureReference &texref) const;
+
+      // MPL magic for kernel invocation syntactic sugar
+
+      struct not_specified {};
+      void foo(int a ) {}
+
+      struct set_parameters
+      {
+        set_parameters( const Function *function )
+        {
+          this->function = function;
+          offset = 0;
+        }
+        template <class T>
+        inline void operator()(T p)
+        {
+          function->setParameter( offset, p );
+          ALIGN_UP( offset, __alignof(p) );
+          offset += sizeof( p );
+        }
+
+        inline void finalize()
+        {
+          std::cout << "finalize at " << offset << " bytes " << std::endl;
+          function->setParameterSize( offset );
+        }
+
+        protected:
+        const Function *function;
+        int offset;
+      };
+
+      template <class A,
+                class B,
+                class C,
+                class D,
+                class E,
+                class F,
+                class G,
+                class H,
+                class I,
+                class J>
+      void go_impl( int width, int height, const Stream &stream, A a, B b, C c, D d, E e, F f, G g, H h, I i, J j )
+      {
+        set_parameters sp = set_parameters(this);
+        sp( a );
+        sp( b );
+        sp( c );
+        sp( d );
+        sp( e );
+        sp( f );
+        sp( g );
+        sp( h );
+        sp( i );
+        sp( j );
+        sp.finalize();
+        launch( width, height, stream );
+      }
+
+      // 1 argument wrapper
+      template <class A>
+      void go( int width, int height, const Stream& stream, A a )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 2 argument wrapper
+      template <class A, class B>
+      void go( int width, int height, const Stream& stream, A a, B b )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 3 argument wrapper
+      template <class A, class B, class C>
+      void go( int width, int height, const Stream& stream, A a, B b, C c )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 4 argument wrapper
+      template <class A, class B, class C, class D>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 5 argument wrapper
+      template <class A, class B, class C, class D, class E>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 6 argument wrapper
+      template <class A, class B, class C, class D, class E, class F>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e, F f )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 f,
+                 not_specified(),
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 7 argument wrapper
+      template <class A, class B, class C, class D, class E, class F, class G>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e, F f, G g )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 f,
+                 g,
+                 not_specified(),
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 8 argument wrapper
+      template <class A, class B, class C, class D, class E, class F, class G, class H>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e, F f, G g, H h )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 f,
+                 g,
+                 h,
+                 not_specified(),
+                 not_specified()
+               );
+      }
+
+      // 9 argument wrapper
+      template <class A, class B, class C, class D, class E, class F, class G, class H, class I>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e, F f, G g, H h, I i )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 f,
+                 g,
+                 h,
+                 i,
+                 not_specified()
+               );
+      }
+
+      // 10 argument wrapper
+      template <class A, class B, class C, class D, class E, class F, class G, class H, class I, class J>
+      void go( int width, int height, const Stream& stream, A a, B b, C c, D d, E e, F f, G g, H h, I i, J j )
+      {
+        go_impl( width, height, stream,
+                 a,
+                 b,
+                 c,
+                 d,
+                 e,
+                 f,
+                 g,
+                 h,
+                 i,
+                 j
+               );
+      }
+
 		private:
 			struct impl_t;
 			boost::scoped_ptr<impl_t> impl;
 	};
+
+  template <>
+  inline void Function::set_parameters::operator()(Function::not_specified)
+  {
+  }
 }
+
 
 #endif
 

@@ -40,6 +40,8 @@ namespace cuda
 				swap(*this, temp);
 				return *this;
 			}
+
+			DevicePtr operator+(int bytes) const;
 	
 		private:
 			struct impl_t;

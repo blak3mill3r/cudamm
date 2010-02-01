@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/blake/src/cudamm/src/array.cpp
+/home/blake/w/cudamm/src/array.cpp
 map
 -
 cuda.h
@@ -28,13 +28,13 @@ detail/stream_impl.hpp
 detail/deviceptr_impl.hpp
 -
 
-/home/blake/src/cudamm/src/cuda.cpp
+/home/blake/w/cudamm/src/cuda.cpp
 cudamm/cuda.hpp
 -
 detail/error.hpp
 -
 
-/home/blake/src/cudamm/src/deviceptr.cpp
+/home/blake/w/cudamm/src/deviceptr.cpp
 cuda.h
 -
 cudamm/deviceptr.hpp
@@ -48,7 +48,7 @@ detail/stream_impl.hpp
 detail/deviceptr_impl.hpp
 -
 
-/home/blake/src/cudamm/src/error.cpp
+/home/blake/w/cudamm/src/error.cpp
 iostream
 -
 string
@@ -60,7 +60,7 @@ cuda.h
 cudamm/exception.hpp
 -
 
-/home/blake/src/cudamm/src/event.cpp
+/home/blake/w/cudamm/src/event.cpp
 cuda.h
 -
 detail/error.hpp
@@ -70,8 +70,10 @@ detail/stream_impl.hpp
 cudamm/event.hpp
 -
 
-/home/blake/src/cudamm/src/function.cpp
+/home/blake/w/cudamm/src/function.cpp
 cuda.h
+-
+iostream
 -
 cudamm/function.hpp
 -
@@ -92,7 +94,7 @@ detail/stream_impl.hpp
 detail/deviceptr_impl.hpp
 -
 
-/home/blake/src/cudamm/src/memcpy2d.cpp
+/home/blake/w/cudamm/src/memcpy2d.cpp
 cuda.h
 -
 cudamm/memcpy2d.hpp
@@ -112,7 +114,7 @@ detail/deviceptr_impl.hpp
 detail/array_impl.hpp
 -
 
-/home/blake/src/cudamm/src/module.cpp
+/home/blake/w/cudamm/src/module.cpp
 cuda.h
 -
 cudamm/module.hpp
@@ -122,7 +124,7 @@ detail/error.hpp
 detail/module_impl.hpp
 -
 
-/home/blake/src/cudamm/src/stream.cpp
+/home/blake/w/cudamm/src/stream.cpp
 cuda.h
 -
 cudamm/stream.hpp
@@ -132,7 +134,7 @@ detail/error.hpp
 detail/stream_impl.hpp
 -
 
-/home/blake/src/cudamm/src/texturereference.cpp
+/home/blake/w/cudamm/src/texturereference.cpp
 cuda.h
 -
 cudamm/module.hpp
@@ -238,6 +240,18 @@ cudamm/function.hpp
 boost/utility.hpp
 -
 boost/scoped_ptr.hpp
+-
+boost/mpl/vector.hpp
+-
+boost/mpl/for_each.hpp
+-
+boost/mpl/transform.hpp
+-
+boost/mpl/placeholders.hpp
+-
+iostream
+-
+typeinfo
 -
 
 cudamm/memcpy2d.hpp

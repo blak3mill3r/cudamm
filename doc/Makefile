@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/blake/src/cudamm
+CMAKE_SOURCE_DIR = /home/blake/w/cudamm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/blake/src/cudamm
+CMAKE_BINARY_DIR = /home/blake/w/cudamm
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,14 +69,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/blake/src/cudamm && $(CMAKE_COMMAND) -E cmake_progress_start /home/blake/src/cudamm/CMakeFiles /home/blake/src/cudamm/doc/CMakeFiles/progress.make
-	cd /home/blake/src/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/blake/src/cudamm/CMakeFiles 0
+	cd /home/blake/w/cudamm && $(CMAKE_COMMAND) -E cmake_progress_start /home/blake/w/cudamm/CMakeFiles /home/blake/w/cudamm/doc/CMakeFiles/progress.make
+	cd /home/blake/w/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/blake/w/cudamm/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/blake/src/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/clean
+	cd /home/blake/w/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/clean
 .PHONY : clean
 
 # The main clean target
@@ -85,22 +85,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/blake/src/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
+	cd /home/blake/w/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/blake/src/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
+	cd /home/blake/w/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/blake/src/cudamm && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/blake/w/cudamm && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 doc/CMakeFiles/doc.dir/rule:
-	cd /home/blake/src/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/CMakeFiles/doc.dir/rule
+	cd /home/blake/w/cudamm && $(MAKE) -f CMakeFiles/Makefile2 doc/CMakeFiles/doc.dir/rule
 .PHONY : doc/CMakeFiles/doc.dir/rule
 
 # Convenience name for target.
@@ -109,7 +109,7 @@ doc: doc/CMakeFiles/doc.dir/rule
 
 # fast build rule for target.
 doc/fast:
-	cd /home/blake/src/cudamm && $(MAKE) -f doc/CMakeFiles/doc.dir/build.make doc/CMakeFiles/doc.dir/build
+	cd /home/blake/w/cudamm && $(MAKE) -f doc/CMakeFiles/doc.dir/build.make doc/CMakeFiles/doc.dir/build
 .PHONY : doc/fast
 
 # Help Target
@@ -132,6 +132,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/blake/src/cudamm && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/blake/w/cudamm && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

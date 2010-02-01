@@ -35,15 +35,15 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/blake/src/cudamm
+CMAKE_SOURCE_DIR = /home/blake/w/cudamm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/blake/src/cudamm
+CMAKE_BINARY_DIR = /home/blake/w/cudamm
 
 # Utility rule file for test.cubin.
 
 test/CMakeFiles/test.cubin:
-	cd /home/blake/src/cudamm/test && /usr/local/cuda/bin/nvcc --cubin /home/blake/src/cudamm/test/test.cu
+	cd /home/blake/w/cudamm/test && /usr/local/cuda/bin/nvcc --cubin /home/blake/w/cudamm/test/test.cu
 
 test.cubin: test/CMakeFiles/test.cubin
 test.cubin: test/CMakeFiles/test.cubin.dir/build.make
@@ -54,10 +54,10 @@ test/CMakeFiles/test.cubin.dir/build: test.cubin
 .PHONY : test/CMakeFiles/test.cubin.dir/build
 
 test/CMakeFiles/test.cubin.dir/clean:
-	cd /home/blake/src/cudamm/test && $(CMAKE_COMMAND) -P CMakeFiles/test.cubin.dir/cmake_clean.cmake
+	cd /home/blake/w/cudamm/test && $(CMAKE_COMMAND) -P CMakeFiles/test.cubin.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/test.cubin.dir/clean
 
 test/CMakeFiles/test.cubin.dir/depend:
-	cd /home/blake/src/cudamm && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/blake/src/cudamm /home/blake/src/cudamm/test /home/blake/src/cudamm /home/blake/src/cudamm/test /home/blake/src/cudamm/test/CMakeFiles/test.cubin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/blake/w/cudamm && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/blake/w/cudamm /home/blake/w/cudamm/test /home/blake/w/cudamm /home/blake/w/cudamm/test /home/blake/w/cudamm/test/CMakeFiles/test.cubin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/test.cubin.dir/depend
 

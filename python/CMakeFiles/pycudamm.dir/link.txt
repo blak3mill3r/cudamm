@@ -1,1 +1,1 @@
-/usr/bin/c++  -fPIC   -shared -Wl,-soname,pycudamm.so -o pycudamm.so CMakeFiles/pycudamm.dir/cuda.o -L/home/blake/src/cudamm/src -L/usr/lib/python2.6/config -lboost_python ../src/libcudamm.a -lcuda /usr/lib/python2.6/config/libpython2.6.so -Wl,-rpath,/usr/lib/python2.6/config 
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,pycudamm.so -o pycudamm.so CMakeFiles/pycudamm.dir/cuda.o -L/home/blake/w/cudamm/src -L/usr/lib/python2.6/config -lboost_python ../src/libcudamm.a -lcuda /usr/lib/python2.6/config/libpython2.6.so -Wl,-rpath,/usr/lib/python2.6/config 

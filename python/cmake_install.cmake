@@ -1,4 +1,4 @@
-# Install script for directory: /home/blake/src/cudamm/python
+# Install script for directory: /home/blake/w/cudamm/python
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
