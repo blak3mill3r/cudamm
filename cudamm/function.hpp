@@ -177,7 +177,13 @@ namespace cuda
         launch( width, height, stream );
       }
 
-      // 1 argument wrapper
+			/// Kernel launch
+			/**
+				@param width grid width
+				@param height grid height
+        @param stream cuda Stream reference
+        @param everything else, params for the kernel
+			*/
       template <class A>
       void go( int width, int height, const Stream& stream, A a )
       {
