@@ -122,8 +122,6 @@ namespace cuda
       // MPL magic for kernel invocation syntactic sugar
 
       struct not_specified {};
-      void foo(int a ) {}
-
       struct set_parameters
       {
         set_parameters( const Function *function )
