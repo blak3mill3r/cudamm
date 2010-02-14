@@ -139,7 +139,7 @@ namespace cuda
 
         inline void finalize()
         {
-          std::cout << "finalize at " << offset << " bytes " << std::endl;
+          //std::cout << "finalize at " << offset << " bytes " << std::endl;
           function->setParameterSize( offset );
         }
 

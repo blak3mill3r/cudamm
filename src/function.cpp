@@ -85,7 +85,7 @@ namespace cuda
 	
 	void Function::launch(int gridWidth, int gridHeight, const Stream &stream) const
 	{
-    std::cout << "DOIN IT" << std::endl;
+    //std::cout << "DOIN IT" << std::endl;
 		detail::error_check(
 			cuLaunchGridAsync(impl->func, gridWidth, gridHeight, stream.impl->stream),
 			"Can't launch asynchronous Cuda function grid");
