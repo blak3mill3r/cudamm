@@ -47,7 +47,9 @@ namespace cuda
 			struct impl_t;
 			boost::scoped_ptr<impl_t> impl;
 			
-			DevicePtr();
+    public:
+			DevicePtr(); // FIXME had to make this public because I store DevicePtrs in std::map<int,DevicePtr> and this produces a compile error
+    private:
 			
 			/// Swap two device pointers
 			/**
