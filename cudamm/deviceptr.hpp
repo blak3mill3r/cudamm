@@ -42,6 +42,8 @@ namespace cuda
 			}
 
 			DevicePtr operator+(int bytes) const;
+
+      unsigned long pingpang() const;
 	
 		private:
 			struct impl_t;

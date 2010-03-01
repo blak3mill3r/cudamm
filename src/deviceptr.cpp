@@ -29,6 +29,11 @@ namespace cuda
     temp.impl->devicePtr = temp.impl->devicePtr + bytes;
     return temp;
   }
+
+  unsigned long DevicePtr::pingpang() const
+  {
+    return static_cast<unsigned long>(impl->devicePtr);
+  }
   
   void memcpy(const DevicePtr &dest, const void *src, unsigned int len)
   {
